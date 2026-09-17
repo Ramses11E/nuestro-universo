@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestro Universo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ PANTALLA DE ENTRADA ============ -->
+  <section id="pantalla-entrada" class="pantalla-entrada">
+    <canvas id="estrellas-entrada" class="estrellas-canvas"></canvas>
+    <div class="entrada-contenido">
+      <p class="entrada-eyebrow">un pequeño cosmos</p>
+      <h1 class="entrada-titulo">Nuestro universo creado por nosotros mismos</h1>
+      <p class="entrada-sub">Cada estrella de aquí adentro es algo que vivimos juntos.</p>
+      <button id="btn-entrar" class="btn-entrar">Entrar</button>
+    </div>
+  </section>
+
+  <!-- ============ UNIVERSO PRINCIPAL ============ -->
+  <main id="universo-app" class="universo-app oculto">
+
+    <!-- Barra superior: búsqueda, filtros, volver -->
+    <header class="barra-superior">
+      <button id="btn-volver" class="btn-icono" title="Volver al inicio" aria-label="Volver al inicio">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="buscador">
+        <svg viewBox="0 0 24 24" width="16" height="16" class="buscador-icono"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" id="input-buscar" placeholder="Buscar en el universo…" autocomplete="off">
+      </div>
+
+      <nav id="filtros" class="filtros" aria-label="Filtrar por categoría"></nav>
+
+      <div class="zoom-controles">
+        <button id="btn-zoom-out" class="btn-icono" title="Alejar" aria-label="Alejar">−</button>
+        <button id="btn-zoom-reset" class="btn-icono btn-icono-texto" title="Centrar">Centrar</button>
+        <button id="btn-zoom-in" class="btn-icono" title="Acercar" aria-label="Acercar">+</button>
+      </div>
+    </header>
+
+    <!-- Escenario navegable -->
+    <div id="escenario" class="escenario">
+      <canvas id="estrellas-fondo" class="estrellas-canvas"></canvas>
+      <div id="lienzo" class="lienzo">
+        <svg id="svg-relaciones" class="svg-relaciones"></svg>
+        <div id="capa-nodos" class="capa-nodos"></div>
+      </div>
+    </div>
+
+    <p class="pista-navegacion">Arrastra para moverte · rueda del mouse o pellizca para zoom · toca una estrella</p>
+  </main>
+
+  <!-- ============ MODAL DE DETALLE ============ -->
+  <div id="modal" class="modal oculto" role="dialog" aria-modal="true">
+    <div class="modal-fondo" id="modal-fondo"></div>
+    <article class="modal-panel">
+      <button id="btn-cerrar-modal" class="btn-cerrar" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="modal-imagen-wrap">
+        <img id="modal-imagen" class="modal-imagen" src="" alt="">
+      </div>
+
+      <div class="modal-cuerpo">
+        <p id="modal-descripcion" class="modal-descripcion"></p>
+        <div id="modal-relaciones-wrap" class="modal-bloque">
+          <h3 class="modal-bloque-titulo">Conectado con</h3>
+          <div id="modal-relaciones" class="modal-relaciones"></div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Modal de imagen ampliada -->
+  <div id="modal-imagen-grande" class="modal-imagen-grande oculto">
+    <img id="imagen-grande" src="" alt="">
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
